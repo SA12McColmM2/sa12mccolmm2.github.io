@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Time Feed</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Dosis', sans-serif;
+        background-image: url('bg.png');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #time {
+        font-weight: bold;
+        font-size: 10vw;
+        color: white;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        /* background-color: #FC3974; */
+        /* padding: 15px 50px; */
+        /* border-radius: 30px; */
+    }
+
+    .small {
+        font-size: 0.6em;
+    }
+
+    #message {
+        font-size: 0.6em;
+        text-align: center;
+    }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis&display=swap">
+</head>
+<body>
+<div id="time"></div>
+
+<script>
+    function updateTime() {
+        var now = new Date();
+        var hours = now.getHours().toString().padStart(2, '0');
+        var minutes = now.getMinutes().toString().padStart(2, '0');
+        var seconds = now.getSeconds().toString().padStart(2, '0');
+        var timeString = hours + ':' + minutes + '<span class="small">.' + seconds + '</span>';
+        document.getElementById('time').innerHTML = timeString;
+    }
+    
+    updateTime();
+    setInterval(updateTime, 1000);
+</script>
+</body>
+</html>
